@@ -261,11 +261,7 @@ export default class AxisChart extends BaseChart {
 
 					let labels = new Array(s.datasetLength).fill('');
 					if(this.config.valuesOverPoints) {
-						if(stacked && d.index === s.datasets.length - 1) {
-							labels = d.cumulativeYs;
-						} else {
-							labels = d.values;
-						}
+						labels = stacked && d.index === s.datasets.length - 1 ? d.cumulativeYs : d.values;
 					}
 
 					let offsets = new Array(s.datasetLength).fill(0);
